@@ -130,12 +130,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
 AUTH_USER_MODEL = 'userapp.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
+
 # AUTH
-AUTH_USER_MODEL = 'userapp.User'
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+#AUTH_USER_MODEL = 'userapp.User'
+#DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # DRF
 REST_FRAMEWORK = {
@@ -148,6 +153,7 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
         'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+        'rest_framework.renderers.JSONRenderer',
         # Any other renders
     ),
     'DEFAULT_PARSER_CLASSES': (
